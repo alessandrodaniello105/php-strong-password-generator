@@ -9,7 +9,7 @@ $magicStr = htmlentities('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPWR
 // $validChars = html_entity_decode($chars);
 
 // (M1) 2. Dichiaro la variabile che sarà la lunghezza scelta per la password [che avrà delle condizioni di controllo (>= 8 && <= 32)]
-$limitLength = (isset($_POST['limit'])) ? $_POST['limit'] : '' ;
+$limitLength = (isset($_POST['limit'])) ? $_POST['limit'] : 'unset' ;
 
 // (M1) 3. Dichiaro una funzione di controllo sull'input della lunghezza
 function isMinLength($number) {
@@ -23,9 +23,10 @@ $error_msg = '';
 function generatePassword($limit, $characters, $error) {
   if (isMinLength($limit)) {
     $newPwd = str_shuffle($characters);
-  
-    // $newPwd = html_entity_decode
     return substr($newPwd, -$limit); 
+
+  } elseif ($limit == 'unset') {
+    return $error = "Inserisci un numero";
   } else {
     return $error = "limite minimo/massimo sbagliato";
   }
@@ -40,7 +41,7 @@ $testLimit = 13;
 
 <body>
   <div class="container">
-    <h2>Hello World!</h2>
+    <h2>PHP Strong Password Generator</h2>
 
     <!-- (M1) 6. Costruisco il form, in cui chiedo la lunghezza della password, nell'index -->
 
