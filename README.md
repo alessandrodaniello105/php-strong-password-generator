@@ -4,6 +4,7 @@ PHP Strong Password Generator
 ## Milestone 1
 1. Dichiaro una variabile come una stringa con tutti i caratteri possibili, con cui generero la password
 1. Dichiaro la variabile che sarà la lunghezza scelta per la password [che avrà delle condizioni di controllo (>= 8 && <= 32)]
+1. Dichiaro una funzione di controllo sull'input della lunghezza 
 1. Dichiaro un messaggio di errore stringa vuota
 1. Dichiaro funzione che genererà la password della lunghezza scelta, per ora senza controlli
 1. Costruisco il form, in cui chiedo la lunghezza della password, nell'index
