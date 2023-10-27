@@ -20,11 +20,15 @@ function isMinLength($number) {
 $error_msg = '';
 
 // (M1) 5. Dichiaro funzione che genererà la password della lunghezza scelta, per ora senza controlli
-function generatePassword($limit, $characters) {
-  $newPwd = str_shuffle($characters);
+function generatePassword($limit, $characters, $error) {
+  if (isMinLength($limit)) {
+    $newPwd = str_shuffle($characters);
   
-  // $newPwd = html_entity_decode
-  return substr($newPwd, -$limit); 
+    // $newPwd = html_entity_decode
+    return substr($newPwd, -$limit); 
+  } else {
+    return $error = "limite minimo/massimo sbagliato";
+  }
 }
 
 $testLimit = 13;
@@ -38,7 +42,18 @@ $testLimit = 13;
   <div class="container">
     <h2>Hello World!</h2>
 
-    <p>test password:<?php echo var_dump(generatePassword($testLimit, $magicStr))  ?></p>
+    <!-- (M1) 6. Costruisco il form, in cui chiedo la lunghezza della password, nell'index -->
+
+    <form action="index.php" method="POST">
+
+      <input type="number" name="limit" id="limit">
+
+      <button class="btn">Invia</button>
+
+    </form>
+
+
+    <p>test password: <?php echo generatePassword($limitLength, $magicStr, $error_msg)  ?></p>
   </div>
 </body>
 </html>
