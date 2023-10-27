@@ -6,14 +6,10 @@ function isMinLength($number) {
   return ($number >= 8 && $number <= 32) ? true : false;
 }
 
-function generatePassword($limit, $characters, $error) {
+function generatePassword($limit, $characters) {
 
-  if (isMinLength($limit)) {
-    $newPwd = str_shuffle($characters);
-    return substr($newPwd, -$limit); 
-  } elseif ($limit == 'unset') {
-    return $error = "Inserisci un numero";
-  } else {
-    return $error = "limite minimo/massimo sbagliato";
-  }
+  $newPwd = str_shuffle($characters);
+
+  return substr($newPwd, -$limit);
+
 }
