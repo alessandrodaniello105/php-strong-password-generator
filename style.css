@@ -1,3 +1,13 @@
+:root {
+  --color-primary: #D5C3AB;
+  --color-special: #655F3B;
+
+  --bg-neutral: #E6E1DB;
+  --bg-neutral-secondary: #DBBCA0;
+  --bg-primary: #E6E1DB;
+  --bg-secondary: #A9815D;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +16,87 @@
 
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: var(--bg-secondary);
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  background-color: var(--bg-neutral-secondary);
+  cursor: pointer;
+  transition: all .5s;
+  margin-top: 20px;
+
+}
+
+.btn-special a {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 50px auto;
   text-align: center;
+  background-color: var(--color-primary);
+  border-radius: 30px;
+  border: 1px solid black;
+  padding: 50px;
 }
 
-.container .input-box {
+.container,
+.btn {
+  border: 1px solid black;
+}
+
+
+.container .input-box,
+.container .info-box {
   margin: 20px 0;
 }
+
+.container .input-box input {
+  background-color: var(--bg-neutral) ;
+  border-style: none;
+  padding: 5px;
+  border-color: var(--color-special);
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.container .pwd-box {
+  margin: 10px auto 20px;
+  background-color: var(--bg-primary);
+  max-width: 50%;
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px #00000020;
+}
+
+.btn {
+  padding: 12px 30px;
+  /* color: var(--color-primary); */
+  border-radius: 20px;
+}
+
+button:hover,
+button:focus {
+ background-color: #e7b98e;
+}
+
+button:active {
+  background-color: var(--bg-secondary); 
+}
+
