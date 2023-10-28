@@ -39,28 +39,29 @@ require_once __DIR__ . '/partials/head.php';
     <h2>PHP Strong Password Generator</h2>
 
 
-    <form-container>
+    <div class="form-container">
 
       <div class="info-box">
 
         <span><?php echo $error_message ?></span>
-        
+
         <p><?php echo $message ?></p>
 
       </div>
 
-      <form action="index.php" method="POST">
+      <form action="index.php" method="POST" id="pepe">
 
         <div class="input-box">
           <label for="limit">Lunghezza Password: </label>
           <input type="number" name="limit" id="limit">
         </div>
 
-        <button type="submit" class="btn">Invia</button>
-
+        
       </form>
-
-    </form-container>
+      
+    </div>
+    
+    <button type="submit" form="pepe" class="btn">Invia</button>
 
   </div>
 </body>
