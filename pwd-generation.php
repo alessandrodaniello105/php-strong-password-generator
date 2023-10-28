@@ -19,10 +19,21 @@ require_once __DIR__ . '/partials/head.php';
 
 
 <body>
-  <h2>Landing Page</h2>
+  <div class="container">
+    <h2>Landing Page</h2>
 
-  <p>La tua password è: <?php echo generatePassword($limitLength, $magicStr) ?></p>
-  
-  <a href="index.php">Torna indietro</a>
+    <div class="info-box">
+      <p>La tua password è: </p>
+
+      <div class="pwd-box">
+        <?php echo generatePassword($limitLength, $magicStr) ?>
+      </div>
+
+    </div>
+
+    <button class="btn-special">
+      <a href="index.php">Torna indietro</a>
+    </button>
+  </div>
 </body>
 </html>
