@@ -20,11 +20,13 @@ if(isset($_POST['limit'])) {
     header('Location: ./pwd-generation.php');
 
   } else {
-    $error_msg = 'limite minimo/massimo sbagliato';
+    $message = '';
+    $error_message = 'Errore! Devi inserire un numero che sia più grande di 8 (compreso) e più piccolo di 32 (compreso)';
   }
 
 } else {
-  $error_msg = 'inserisci un numero';
+  $error_message = null;
+  $message = 'Inserisci un numero compreso tra 8 e 32';
 }
 
 require_once __DIR__ . '/partials/head.php';
@@ -37,19 +39,28 @@ require_once __DIR__ . '/partials/head.php';
     <h2>PHP Strong Password Generator</h2>
 
 
-    <form action="index.php" method="POST">
+    <form-container>
 
-      <div class="input-box">
-        <label for="limit">Lunghezza Password: </label>
-        <input type="number" name="limit" id="limit">
+      <div class="info-box">
+
+        <span><?php echo $error_message ?></span>
+        
+        <p><?php echo $message ?></p>
+
       </div>
 
+      <form action="index.php" method="POST">
 
-      <button type="submit" class="btn">Invia</button>
+        <div class="input-box">
+          <label for="limit">Lunghezza Password: </label>
+          <input type="number" name="limit" id="limit">
+        </div>
 
-      <p><?php echo $error_msg ?></p>
+        <button type="submit" class="btn">Invia</button>
 
-    </form>
+      </form>
+
+    </form-container>
 
   </div>
 </body>
